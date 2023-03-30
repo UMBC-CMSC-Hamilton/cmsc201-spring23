@@ -167,3 +167,36 @@ print(my_tuple_dict)
 # this is why keys have to be immutable
 # my_list_dict = {[5, 3]: 'hi',[2, 4]: 'pool'}
 # print(my_list_dict)
+
+"""
+    .keys()
+    
+    .values()
+"""
+
+my_dictionary = {'hi': 5, 'lucky': 7, 'unlucky': 13, 'whatever': 2}
+for my_key in my_dictionary:
+    print(my_key)
+
+# normally it will give you a dict_keys object (like a list but not quite)
+#  if you need it to be a list, just cast it.
+print(list(my_dictionary.keys()))
+# 1 in 100 times you may need this
+
+# check for an average
+average = 0
+for x in my_dictionary.values():
+    average += x
+print(average/len(my_dictionary))
+
+another_average = 0
+for key in my_dictionary:
+    another_average += my_dictionary[key]
+print(another_average / len(my_dictionary))
+
+"""
+    len(dictionary) is the number of key/value pairs (number of keys)
+    
+    definitely useful for dictionaries
+"""
+
