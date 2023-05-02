@@ -54,6 +54,8 @@
 
 import random
 
+# (n - 1) + (n - 2) + (n - 3) + ... + 1 = gauss sum in reverse
+# (n - 1)(n - 1 + 1) / 2 = n (n - 1)/2 number of steps for max bubble sort
 
 def bubble_sort_for(my_list):
     for iteration in range(len(my_list) - 1):
@@ -108,7 +110,12 @@ def bubble_sort_while(my_list):
         [1 2 3 4 5 7 9]
 """
 
-
+"""
+    outer loop runs n times
+    n - i times
+    (n - 1) + (n - 2) + (n - 3) + ... + 3 + 2 + 1 = gauss sum in reverse
+    n(n - 1)/2 steps
+"""
 def selection_sort(my_list):
     for i in range(len(my_list)):
         min_index = i
@@ -154,14 +161,16 @@ def insertion_sort_better(my_list):
     for i in range(1, len(my_list)):
         j = i
         temp = my_list[i]
-        while j > 0 and my_list[j - 1] > my_list[j]:
+        while j > 0 and my_list[j - 1] > temp:
             my_list[j] = my_list[j - 1]
             j -= 1
         my_list[j] = temp
     
     return my_list
 
-
+"""
+1 + 2 + 3 + 4 + 5 + ... + n = n(n + 1)/2
+"""
 def insertion_sort(my_list):
     for i in range(1, len(my_list)):
         j = i
