@@ -152,3 +152,5 @@ print(binary_search(sorted_list, 0, len(sorted_list), 250))
     Think about how it works when you divide a list in half over and over
         Hint: think about logs
 """
+Ω = 4
+print(Ω)
