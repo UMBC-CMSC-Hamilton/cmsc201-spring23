@@ -47,9 +47,7 @@ except FileNotFoundError as fnfe:
 except ZeroDivisionError:
     print('Why did you try to divide by zero?')
 
-
 print("hello there")
-
 
 the_input = input('Enter an integer: ')
 the_number = 0
@@ -72,3 +70,17 @@ while not set_number:
         continue is even more rare
 """
 print(the_number)
+
+
+def my_function(**keywords):
+    print(keywords)
+
+
+my_function(a=17, c="happy", b=31, robot='chicken')
+
+
+def my_print(the_string, end="\n", sep=" "):
+    print(the_string, end=end, sep=sep)
+
+
+my_print("hello", sep='happy', end="::")
