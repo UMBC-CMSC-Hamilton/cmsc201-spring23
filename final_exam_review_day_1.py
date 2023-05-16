@@ -293,3 +293,230 @@ func(1, 9) = 9
 
 27
 """
+
+"""
+
+line numbers match - 300
+# find_vowels() counts number of vowels in a string
+# Parameters:  sentence;  a string
+# Return:      num_vowels; an integer
+def find_vowels(sentence):
+    num_vowels = 0
+    for i in range(len(sentence): # missing paren
+
+        if sentence.upper() in ["A", "E", "I", "O", "U"]: # add sentence[i]
+            num_vowels += 1
+    return 0  # return num_vowels
+if __name__ == '__main__':
+    total_vowels = 0
+    with open("myfile.txt", "r") as my_file:
+       line_list = my_file.readlines()  # alternatively delete this line
+
+       for line in my_file:  # line_list
+           # count number of vowels in each list
+           total_vowels += find_vowels(line)
+    
+        print("There are", total_vowels, "vowels") # back one tab level
+
+"""
+
+"""
+
+# recur_max() takes in a list and finds the maximum element
+# Parameters:  my_list; a NON-EMPTY list of numbers
+# Return:      a numerical value, zero if empty
+def recur_max():  # my_list needs to be a parameter
+    # BASE CASE: list has only one element
+    if not len(my_list):
+        return 0
+    else:
+        # find maximum of the list without the first element
+        max_rest = recur_max(my_list[2: ])  # start at [1:]
+        if max_rest < my_list[0]:
+            return my_list[0]
+        else:
+            return max_rest[0]  # remove the index [0]
+if __name__ == '__main__'  # no colon
+    temp_val = int(input("Please enter a num (0 to stop): "))
+    the_list = # add [] or list()
+    while temp_val == 0: # change == to !=
+        the_list.append( temp_val )
+        temp_val = int(input("Please enter a num (0 to stop): "))
+
+    list_max = recur_max( the_list )
+    print(f"The maximum element in the list is {list_max}")
+    print("The maximum element in the list is", list_max)
+    print("The maximum element in the list is"+ str(list_max))
+
+"""
+
+
+def is_power_2(num):
+    if num == 0:  # 2^x = 0
+        return False
+    elif num % 2 == 0:
+        return is_power_2(num // 2)
+    elif num == 1:
+        return True
+    else:
+        return False
+
+
+"""
+    2 * 2 * 2 * 2 * 2 * 2 * ... * 2
+    does it have a factor of two?
+    if yes we can divide it
+"""
+
+
+def create_2d_list(height, width, symbol):
+    my_grid = []
+    for i in range(height):
+        new_row = []
+        for j in range(width):
+            new_row.append(symbol)
+        my_grid.append(new_row)
+        # print(my_grid)
+    return my_grid
+
+
+"""
+    my_grid = [reference to the first sublist, reference to the second sublist, ...]
+"""
+
+the_list = create_2d_list(4, 3, "+")
+
+for i in range(len(the_list)):
+    print(the_list[i])
+
+the_list[2][2] = 'a'
+print('-------------------------')
+for i in range(len(the_list)):
+    print(the_list[i])
+
+"""
+Final Exam:
+    This Friday May 19th From 6pm - 8pm AD 101
+
+Total Review of everything:
+    variables:
+        immutable = bool, float, int, string
+        when you pass them in functions get passed by value
+            a copy is made
+        mutable = lists, dictionaries, classes
+        when you pass them into a function they actually pass by reference
+            a reference is given
+            a reference is a memory location where the original variable is
+            local variable name may be different but the actual data is the same
+            
+        python legal variable names:
+            start with a letter or underscore
+            contains letters numbers, underscores
+            no characters like !@#$%^&*()
+        python coding standards PEP8
+            lowercase with underscores = snake case
+    if statements/elif/else
+        order of operations/order of operator precedence
+        arithmetic ()*//%+-
+            ()
+            **
+            *, //, /, %
+            +, -
+        comparisons
+            < > <=, >=, ==, !=, in
+        logic
+            not
+            and
+            or
+            
+        (X and Y) or Z
+        X and (Y or Z)
+        
+        How many elifs can we have in a single expression?
+            infinity, however many you want, many
+        (At most) How many elifs in a single expression will possibly execute?
+            1
+        Does an if statement need an else?
+            no
+    for loops:
+        when you know how many times you're going to run the loop [most of the time in life]
+        for-each
+            for x in my_list:
+            
+                Can't modify x, if x is immutable
+                But if x is mutable then you 'can' modify it somewhat
+        for-i index loops
+            for i in range(len(my_list)):
+            
+"""
+Ω = 5
+print(Ω)
+
+my_list = [[1, 2], [3, 4], [5, 6]]
+
+for x in my_list:
+    # since x is a reference you can modify these sublists
+    x.append(7)
+print(my_list)
+
+
+for x in my_list:
+    # more weirdness
+    x = [3, 9, 12]
+    
+print(my_list)
+
+another_list = [1, 2, 3, 4, 5, 6]
+for x in another_list:
+    x += 1
+
+print(another_list)
+
+
+"""
+    while loops = if statement on repeat
+        don't know how many times you're going to run a particular thing
+        
+        GUI programming (message loops)
+        servers (message loops)
+        input validation (keep asking the user for proper input before continuing)
+        game (chess, checkers, minesweeper, cards, etc)
+        (usually there's only a few of them in any piece of code)
+    
+        Problems:
+            infinite loop: while True (and never gets set to false)
+        Feature:
+            skipped loop: while condition, condition is false before entering, the
+                loop is skipped
+"""
+
+
+"""
+    functions and recursion
+        parameters are input into the function (arguments which become the parameters)
+        parameters and other local variables are in the local scope:
+            these variables live as long as the function does, and then python forgets
+                their names, eventually the python garbage collector will run
+                lost or deleted, garbage collected
+                
+    
+    recursion
+        base case
+            doesn't call additional recursions
+        recursive case
+            does!
+            
+        a recursion can cause a "stack overflow" / RecursionError (about 1000 recursion depth)
+        
+    
+"""
+# declaration, name (parameters)
+# what does the function "need to know"
+def happy_function(my_string, my_int, my_float):
+    if my_float > 0:
+        return my_string * my_int
+    else:
+        return "sunk"
+
+
+print(happy_function("asdf", 5, 3.2))
